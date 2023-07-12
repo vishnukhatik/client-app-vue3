@@ -8,8 +8,12 @@
           other developers
         </p>
         <div class="buttons">
-          <a href="register.html" class="btn btn-primary">Sign Up</a>
-          <a href="login.html" class="btn btn-light">Login</a>
+          <router-link :to="{ name: 'Register' }" class="btn btn-primary"
+            >Sign Up</router-link
+          >
+          <router-link :to="{ name: 'Login' }" class="btn btn-light"
+            >Login</router-link
+          >
         </div>
       </div>
     </div>

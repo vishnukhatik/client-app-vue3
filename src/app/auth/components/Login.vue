@@ -13,7 +13,8 @@
       <input type="submit" class="btn btn-primary" value="Login" />
     </form>
     <p class="my-1">
-      Don't have an account? <a href="register.html">Sign Up</a>
+      Don't have an account?
+      <router-link :to="{ name: 'Register' }">Sign Up</router-link>
     </p>
   </section>
 </template>

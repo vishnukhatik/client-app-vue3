@@ -9,7 +9,9 @@
       <h2>John Doe</h2>
       <p>Developer at Microsoft</p>
       <p>Seattle, WA</p>
-      <a href="profile.html" class="btn btn-primary">View Profile</a>
+      <router-link :to="{ name: 'Profile' }" class="btn btn-primary"
+        >View Profile</router-link
+      >
     </div>
 
     <ul>

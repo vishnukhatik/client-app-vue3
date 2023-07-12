@@ -6,7 +6,7 @@ const auth = [
   },
   {
     path: "/auth/register",
-    name: "",
+    name: "Register",
     component: () => import("@/app/auth/components/Register.vue"),
   },
 ];

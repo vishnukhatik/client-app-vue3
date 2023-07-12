@@ -4,9 +4,9 @@
       <a href="#"><i class="fas fa-code"></i> {{ logo }}</a>
     </h1>
     <ul>
-      <li><a href="#">Developers</a></li>
-      <li><a href="#">Register</a></li>
-      <li><a href="#">Login</a></li>
+      <li><router-link :to="{ name: 'Profiles' }">Developers</router-link></li>
+      <li><router-link :to="{ name: 'Register' }">Register</router-link></li>
+      <li><router-link :to="{ name: 'Login' }">Login</router-link></li>
     </ul>
   </nav>
 </template>
