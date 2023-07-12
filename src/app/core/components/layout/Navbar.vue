@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar bg-dark">
     <h1>
-      <a href="#"><i class="fas fa-code"></i> DevConnector</a>
+      <a href="#"><i class="fas fa-code"></i> {{ logo }}</a>
     </h1>
     <ul>
       <li><a href="#">Developers</a></li>
@@ -12,8 +12,11 @@
 </template>
 
 <script>
+import { navbarProps } from "../../../utils/props";
+
 export default {
   name: "Navbar",
+  props: { ...navbarProps },
   components: {},
 };
 </script>

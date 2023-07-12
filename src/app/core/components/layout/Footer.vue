@@ -6,7 +6,8 @@
 </template>
 
 <script setup>
-const currentYear = new Date().getFullYear();
+import { computed } from "vue";
+const currentYear = computed(() => new Date().getFullYear());
 </script>
 
 <style></style>
