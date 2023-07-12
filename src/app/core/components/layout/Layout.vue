@@ -9,7 +9,7 @@
 import NavbarComponent from "@/app/core/components/layout/Navbar.vue";
 import FooterComponent from "@/app/core/components/layout/Footer.vue";
 export default {
-  name: "App",
+  name: "Layout",
   components: {
     NavbarComponent,
     FooterComponent,
