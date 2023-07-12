@@ -1,8 +1,12 @@
 <template>
   <!-- <img alt="Vue logo" src="@/assets/logo.png" /> -->
-  <navbar-component />
-  <router-view></router-view>
-  <footer-component />
+  <div>
+    <navbar-component />
+    <section class="main-h">
+      <router-view></router-view>
+    </section>
+    <footer-component />
+  </div>
 </template>
 
 <script>
@@ -17,4 +21,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.main-h {
+  height: calc(100vh - 120px);
+  max-height: calc(100vh - 120px);
+  min-height: calc(100vh - 120px);
+  overflow: auto;
+}
+</style>
