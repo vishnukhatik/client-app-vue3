@@ -18,5 +18,5 @@
     </p>
   </section>
 </template>
-<script setup></script>
+<script></script>
 <style lang=""></style>

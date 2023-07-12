@@ -7,7 +7,9 @@ const profile = [
   {
     path: "/developer",
     name: "Profile",
-    component: () => import("@/app/profiles/components/profile/Profile.vue"),
+    component: () => {
+      return import("@/app/profile/components/Profile.vue");
+    },
   },
 ];
 export default profile;

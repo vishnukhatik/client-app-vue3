@@ -1,6 +1,8 @@
 <template lang="">
   <section class="container">
-    <a href="profiles.html" class="btn btn-light">Back To Profiles</a>
+    <router-link :to="{ name: 'Profiles' }" class="btn btn-light"
+      >Back To Profiles</router-link
+    >
 
     <div class="profile-grid my-1">
       <!-- Top ProfileUser -->
@@ -24,12 +26,12 @@
   </section>
 </template>
 <script>
-import ProfileUser from "@/app/profiles/components/profile/ProfileUser.vue";
-import ProfileBio from "@/app/profiles/components/profile/ProfileBio.vue";
-import ProfileEducation from "@/app/profiles/components/profile/ProfileEducation.vue";
-import ProfileExperience from "@/app/profiles/components/profile/ProfileExperience.vue";
-import ProfileRepos from "@/app/profiles/components/profile/ProfileRepos.vue";
-import ProfileSkill from "@/app/profiles/components/profile/ProfileSkill.vue";
+import ProfileUser from "@/app/profile/components/ProfileUser.vue";
+import ProfileBio from "@/app/profile/components//ProfileBio.vue";
+import ProfileEducation from "@/app/profile/components/ProfileEducation.vue";
+import ProfileExperience from "@/app/profile/components/ProfileExperience.vue";
+import ProfileRepos from "@/app/profile/components/ProfileRepos.vue";
+import ProfileSkill from "@/app/profile/components/ProfileSkill.vue";
 export default {
   components: {
     ProfileUser,
