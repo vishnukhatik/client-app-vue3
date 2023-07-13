@@ -74,6 +74,7 @@ export default {
 </script> -->
 <!-- vue2 -->
 <script>
+import { registerService } from "@/app/auth/services/auth.service";
 export default {
   data() {
     return {
@@ -86,8 +87,14 @@ export default {
     };
   },
   methods: {
-    registerForm() {
+    async registerForm() {
       console.log("registerForm", this.register);
+      try {
+        const result = await registerService(this.register);
+        console.log("result", result);
+      } catch (error) {
+        console.log("error", error);
+      }
     },
   },
 };
