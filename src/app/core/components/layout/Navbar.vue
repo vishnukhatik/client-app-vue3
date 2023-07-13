@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar bg-dark">
     <h1>
-      <a href="#"><i class="fas fa-code"></i> {{ logo }}</a>
+      <router-link :to="{ name: 'Landing' }"
+        ><i class="fas fa-code"></i> {{ logo }}</router-link
+      >
     </h1>
     <ul>
       <li><router-link :to="{ name: 'Profiles' }">Developers</router-link></li>

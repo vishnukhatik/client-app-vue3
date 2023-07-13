@@ -10,7 +10,7 @@
           v-model="register.name"
           name="name"
         />
-        <div class="invalid-feedback">{{ error.name }}</div>
+        <div class="invalid-feedback" v-if="error.name">{{ error.name }}</div>
       </div>
       <div class="form-group">
         <input
@@ -23,7 +23,7 @@
           >This site uses Gravatar so if you want a profile image, use a
           Gravatar email</small
         >
-        <div class="invalid-feedback">{{ error.email }}</div>
+        <div class="invalid-feedback" v-if="error.email">{{ error.email }}</div>
       </div>
       <div class="form-group">
         <input
@@ -33,7 +33,9 @@
           minLength="6"
           v-model="register.password"
         />
-        <div class="invalid-feedback">{{ error.password }}</div>
+        <div class="invalid-feedback" v-if="error.password">
+          {{ error.password }}
+        </div>
       </div>
       <div class="form-group">
         <input
@@ -64,8 +66,21 @@ export default {
         password: "",
         cPassword: "",
     });
+    const error = ref({});
     const registerForm = () => {
-      console.log("Login", login);
+        console.log("registerForm", this.register);
+      try {
+        const result = await registerService(this.register);
+        console.log("result", result);
+      } catch (error) {
+        console.log("error", error.response.data.errors);
+        error.response.data.errors.filter((e) => {
+          console.log("e parameter", e.param);
+          console.log("e parameter", e.msg);
+          error.value[e.param] = e.msg;
+        });
+      }
+      console.log("error: " + error.value);
     };
     return {
       register,
@@ -91,15 +106,12 @@ export default {
   },
   methods: {
     async registerForm() {
-      console.log("registerForm", this.register);
+      this.error = {};
       try {
         const result = await registerService(this.register);
-        console.log("result", result);
+        if (result) console.log("result", result);
       } catch (error) {
-        console.log("error", error.response.data.errors);
         error.response.data.errors.filter((e) => {
-          console.log("e parameter", e.param);
-          console.log("e parameter", e.msg);
           this.error[e.param] = e.msg;
         });
       }

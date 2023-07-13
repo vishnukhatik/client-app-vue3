@@ -1,6 +1,6 @@
 <template lang="">
   <section class="container">
-    <div class="alert alert-danger">Invalid credentials</div>
+    <div class="alert alert-danger" v-if="!inValid">Invalid credentials</div>
     <h1 class="large text-primary">Sign In</h1>
     <p class="lead"><i class="fas fa-user"></i> Sign into Your Account</p>
     <form class="form" @submit.prevent="loginForm">
@@ -10,7 +10,6 @@
           placeholder="Email Address"
           v-model="login.email"
           name="email"
-          required
         />
       </div>
       <div class="form-group">
@@ -53,6 +52,8 @@ export default {
 <!-- vue2 -->
 
 <script>
+import { loginService } from "@/app/auth/services/auth.service";
+
 export default {
   data() {
     return {
@@ -60,11 +61,22 @@ export default {
         email: "",
         password: "",
       },
+      inValid: true,
     };
   },
   methods: {
-    loginForm() {
-      console.log("loginForm", this.login);
+    async loginForm() {
+      this.error = {};
+      try {
+        const result = await loginService(this.login);
+        if (result) {
+          this.inValid = true;
+          this.$router.push({ name: "Dashboard" });
+        }
+      } catch (error) {
+        console.log("error.errors.msg", error);
+        this.inValid = false;
+      }
     },
   },
 };

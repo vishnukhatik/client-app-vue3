@@ -5,5 +5,5 @@ export const registerService = (data) => {
 };
 
 export const loginService = (data) => {
-  return api.post("/users", data);
+  return api.post("/auth", data);
 };
