@@ -50,6 +50,7 @@
     </p>
   </section>
 </template>
+<!-- vue3 -->
 <!-- <script>
 import { ref } from "vue";
 export default {
@@ -71,6 +72,7 @@ export default {
   },
 };
 </script> -->
+<!-- vue2 -->
 <script>
 export default {
   data() {
