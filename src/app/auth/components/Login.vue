@@ -3,12 +3,23 @@
     <div class="alert alert-danger">Invalid credentials</div>
     <h1 class="large text-primary">Sign In</h1>
     <p class="lead"><i class="fas fa-user"></i> Sign into Your Account</p>
-    <form class="form" action="dashboard.html">
+    <form class="form" @submit.prevent="loginForm">
       <div class="form-group">
-        <input type="email" placeholder="Email Address" name="email" required />
+        <input
+          type="email"
+          placeholder="Email Address"
+          v-model="login.email"
+          name="email"
+          required
+        />
       </div>
       <div class="form-group">
-        <input type="password" placeholder="Password" name="password" />
+        <input
+          type="password"
+          placeholder="Password"
+          v-model="login.password"
+          name="password"
+        />
       </div>
       <input type="submit" class="btn btn-primary" value="Login" />
     </form>
@@ -16,7 +27,43 @@
       Don't have an account?
       <router-link :to="{ name: 'Register' }">Sign Up</router-link>
     </p>
+    {{ login }}
   </section>
 </template>
-<script></script>
+<!-- <script>
+import { ref } from "vue";
+export default {
+  name: "Login",
+  setup() {
+    const login = ref({
+      email: "",
+      password: "",
+    });
+    const loginForm = () => {
+      console.log("Login", login);
+    };
+    return {
+      login,
+      loginForm,
+    };
+  },
+};
+</script> -->
+<script>
+export default {
+  data() {
+    return {
+      login: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    loginForm() {
+      console.log("loginForm", this.login);
+    },
+  },
+};
+</script>
 <style lang=""></style>
