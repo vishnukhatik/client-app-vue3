@@ -1,8 +1,8 @@
 <template>
-  <p class="bg-dark text-white p-1 text-center">
+  <div class="bg-dark text-white p-2 text-center">
     &copy; {{ currentYear }} All Right Reserved.Designed by
     <em>Vishnu Khatik VK</em>
-  </p>
+  </div>
 </template>
 
 <script setup>

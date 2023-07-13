@@ -23,9 +23,9 @@ export default {
 
 <style>
 .main-h {
-  height: calc(100vh - 58px);
-  max-height: calc(100vh - 58px);
-  min-height: calc(100vh - 58px);
+  height: calc(100vh - 42px);
+  max-height: calc(100vh - 42px);
+  min-height: calc(100vh - 42px);
   overflow: auto;
 }
 </style>

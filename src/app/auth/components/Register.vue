@@ -9,8 +9,8 @@
           placeholder="Name"
           v-model="register.name"
           name="name"
-          required
         />
+        <div class="invalid-feedback">{{ error.name }}</div>
       </div>
       <div class="form-group">
         <input
@@ -23,6 +23,7 @@
           >This site uses Gravatar so if you want a profile image, use a
           Gravatar email</small
         >
+        <div class="invalid-feedback">{{ error.email }}</div>
       </div>
       <div class="form-group">
         <input
@@ -32,6 +33,7 @@
           minLength="6"
           v-model="register.password"
         />
+        <div class="invalid-feedback">{{ error.password }}</div>
       </div>
       <div class="form-group">
         <input
@@ -84,6 +86,7 @@ export default {
         password: "",
         cPassword: "",
       },
+      error: {},
     };
   },
   methods: {
@@ -93,8 +96,14 @@ export default {
         const result = await registerService(this.register);
         console.log("result", result);
       } catch (error) {
-        console.log("error", error);
+        console.log("error", error.response.data.errors);
+        error.response.data.errors.filter((e) => {
+          console.log("e parameter", e.param);
+          console.log("e parameter", e.msg);
+          this.error[e.param] = e.msg;
+        });
       }
+      console.log("error: " + this.error);
     },
   },
 };

@@ -1,7 +1,7 @@
 const layout = [
   {
     path: "/",
-    name: "Dashbord",
+    name: "Dashboard",
     component: () => import("@/app/core/components/layout/Landing.vue"),
   },
 ];
