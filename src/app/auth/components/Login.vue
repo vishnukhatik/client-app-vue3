@@ -32,19 +32,37 @@
 <!-- vue3 -->
 <!-- <script>
 import { ref } from "vue";
+import { loginService } from "@/app/auth/services/auth.service";
+import { useRouter } from "vue-router";
+
 export default {
   name: "Login",
   setup() {
+    const router = useRouter();
     const login = ref({
       email: "",
       password: "",
     });
-    const loginForm = () => {
-      console.log("Login", login);
+    const inValid = ref(true);
+    const loginForm = async () => {
+      try {
+        const result = await loginService(login.value);
+        if (result) {
+          inValid.value = true;
+          router.push({
+            name: "Dashboard",
+          });
+        }
+      } catch (error) {
+        console.log("error.errors.msg", error);
+        inValid.value = false;
+      }
     };
     return {
+      router,
       login,
       loginForm,
+      inValid,
     };
   },
 };
@@ -66,7 +84,6 @@ export default {
   },
   methods: {
     async loginForm() {
-      this.error = {};
       try {
         const result = await loginService(this.login);
         if (result) {
