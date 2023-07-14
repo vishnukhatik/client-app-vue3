@@ -9,9 +9,12 @@
       <h2>John Doe</h2>
       <p>Developer at Microsoft</p>
       <p>Seattle, WA</p>
-      <router-link :to="{ name: 'Profile' }" class="btn btn-primary"
+      <!-- <router-link
+        :to="{ name: 'Profile', params: { id: 1 } }"
+        class="btn btn-primary"
         >View Profile</router-link
-      >
+      > -->
+      <button @click="gotoProfile" class="btn btn-primary">View Profile</button>
     </div>
 
     <ul>
@@ -24,6 +27,15 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    gotoProfile() {
+      this.$router.push({ name: "Profile", params: { id: 1 } });
+    },
+  },
+};
 </script>
 <style lang=""></style>

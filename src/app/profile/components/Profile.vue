@@ -41,6 +41,12 @@ export default {
     ProfileRepos,
     ProfileSkill,
   },
+  data() {
+    return {
+      // profile: this.$route.query.id,
+    };
+  },
+  methods: {},
 };
 </script>
 <style lang=""></style>
