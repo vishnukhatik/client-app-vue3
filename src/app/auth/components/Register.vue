@@ -109,7 +109,12 @@ export default {
       this.error = {};
       try {
         const result = await registerService(this.register);
-        if (result) console.log("result", result);
+        if (result) {
+          console.log("result.data.token", result.data.token);
+          localStorage.setItem("client-token", result.data.token);
+          this.inValid = true;
+          this.$router.push({ name: "Dashboard" });
+        }
       } catch (error) {
         error.response.data.errors.filter((e) => {
           this.error[e.param] = e.msg;
