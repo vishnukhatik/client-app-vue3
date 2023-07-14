@@ -48,6 +48,7 @@ export default {
       try {
         const result = await loginService(login.value);
         if (result) {
+          localStorage.setItem("client-token", result.data.token);
           inValid.value = true;
           router.push({
             name: "Dashboard",
@@ -87,7 +88,6 @@ export default {
       try {
         const result = await loginService(this.login);
         if (result) {
-          console.log("result.data.token", result.data.token);
           localStorage.setItem("client-token", result.data.token);
           this.inValid = true;
           this.$router.push({ name: "Dashboard" });
