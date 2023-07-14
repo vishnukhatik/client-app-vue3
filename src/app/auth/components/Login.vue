@@ -26,7 +26,6 @@
       Don't have an account?
       <router-link :to="{ name: 'Register' }">Sign Up</router-link>
     </p>
-    {{ login }}
   </section>
 </template>
 <!-- vue3 -->

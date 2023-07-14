@@ -3,6 +3,7 @@ const profile = [
     path: "/profiles",
     name: "Profiles",
     component: () => import("@/app/profiles/components/Profiles.vue"),
+    meta: { auth: true },
     props: true,
   },
   {
@@ -11,6 +12,7 @@ const profile = [
     component: () => {
       return import("@/app/profile/components/Profile.vue");
     },
+    meta: { auth: true },
     props: true,
   },
   {
@@ -19,6 +21,7 @@ const profile = [
     component: () => {
       return import("@/app/profile/components/Profile.vue");
     },
+    meta: { auth: true },
   },
   {
     path: "/add-experience",
@@ -26,6 +29,7 @@ const profile = [
     component: () => {
       return import("@/app/profile/components/Profile.vue");
     },
+    meta: { auth: true },
   },
   {
     path: "/add-education",
@@ -33,6 +37,7 @@ const profile = [
     component: () => {
       return import("@/app/profile/components/Profile.vue");
     },
+    meta: { auth: true },
   },
 ];
 export default profile;
