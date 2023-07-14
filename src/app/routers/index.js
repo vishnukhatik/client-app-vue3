@@ -7,25 +7,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [...layout, ...auth, ...profile, ...notFound],
 });
-// router.beforeEach((to, from, next) => {
-//   console.log("to:", to);
-//   console.log("from:", from);
-//   if (!to.matched.length) console.warn("no match");
-//   if (IsAuthenticated) {
-//     next();
-//   } else {
-//     this.$
-//   }
-// });
-// router.beforeEach((to, from, next) => {
-//   // If the user is not logged in, redirect to /login
-//   const isLoggedIn = !!IsAuthenticated;
-//   if (to.name === "Dashboard" && !isLoggedIn) {
-//     return next({ path: "/login" });
-//   }
 
-//   next();
-// });
 router.beforeEach((to, from, next) => {
   const loggedIn = localStorage.getItem("client-token");
   console.log(to.meta.auth);
