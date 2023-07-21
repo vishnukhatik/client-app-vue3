@@ -11,6 +11,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const loggedIn = localStorage.getItem("client-token");
   console.log(to.meta.auth);
+  console.log("logged in", loggedIn);
   // trying to access a restricted page + not logged in
   // redirect to login page
   if (to.meta.auth && !loggedIn) {
@@ -20,3 +21,5 @@ router.beforeEach((to, from, next) => {
   }
 });
 export default router;
+
+// guard(to, from, next);

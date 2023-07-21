@@ -2,7 +2,7 @@
   <!-- <img alt="Vue logo" src="@/assets/logo.png" /> -->
   <div>
     <navbar-component />
-    <section class="main-h">
+    <section>
       <router-view></router-view>
     </section>
     <footer-component />

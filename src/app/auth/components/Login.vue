@@ -71,6 +71,8 @@ export default {
 
 <script>
 import { loginService } from "@/app/auth/services/auth.service";
+import { mapGetters } from "vuex";
+import * as type from "../store/mutations/types/index";
 
 export default {
   data() {
@@ -82,12 +84,22 @@ export default {
       inValid: true,
     };
   },
+  computed: {
+    ...mapGetters([
+      {
+        getToken: "auth/getToken",
+      },
+    ]),
+  },
   methods: {
     async loginForm() {
       try {
         const result = await loginService(this.login);
         if (result) {
-          localStorage.setItem("client-token", result.data.token);
+          // localStorage.setItem("client-token", result.data.token);
+          // this.$store.commit("setToken", result.data.token);
+          this.$store.commit(`auth/${type.SET_TOKEN}`, result.data.token);
+          console.log("getToken", this.getToken);
           this.inValid = true;
           this.$router.push({ name: "Dashboard" });
         }
